@@ -1,8 +1,15 @@
 version: 0.1
 
+
+env:
+  variables:
+    BUILD_BRANCH: myArtifactName
+
 phases:
    pre_build: 
      commands:
+      - export BUILD_BRANCH=$(strip "$CODEBUILD_WEBHOOK_HEAD_REF" "refs/heads/")
+     
      
    build:
      commands:
@@ -10,7 +17,7 @@ phases:
 artifacts:
   files:
    - public/*
-  name: profileapp-$CODEBUILD_WEBHOOK_HEAD_REF
+  name: profileapp-$BUILD_BRANCH
 
  ## CODEBUILD_SOURCE_VERSION
  ## CODEBUILD_WEBHOOK_BASE_REF    
