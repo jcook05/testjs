@@ -8,7 +8,8 @@ env:
 phases:
    pre_build: 
      commands:
-      - export BUILD_BRANCH=$(strip "$CODEBUILD_WEBHOOK_HEAD_REF" "refs/heads/")
+      
+      - echo $CODEBUILD_WEBHOOK_HEAD_REF
      
      
    build:
@@ -17,7 +18,9 @@ phases:
 artifacts:
   files:
    - public/*
-  name: profileapp-$BUILD_BRANCH
+
+  name: profileapp-$($CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/") 
+ 
 
  ## CODEBUILD_SOURCE_VERSION
  ## CODEBUILD_WEBHOOK_BASE_REF    
