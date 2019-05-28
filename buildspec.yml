@@ -22,9 +22,10 @@ phases:
 artifacts:
   files:
    - public/*
-
-  name: profileapp-$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/") 
+  
+  #$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/") 
  
+  name: profileapp-$BRANCH_BUILD
 
  ## CODEBUILD_SOURCE_VERSION
  ## CODEBUILD_WEBHOOK_BASE_REF    
