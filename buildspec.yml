@@ -10,7 +10,7 @@ phases:
 artifacts:
   files:
    - public/*
-  name: profileapp-$CODEBUILD_SOURCE_VERSION
+  name: profileapp-$CODEBUILD_WEBHOOK_HEAD_REF
 
  ## CODEBUILD_SOURCE_VERSION
  ## CODEBUILD_WEBHOOK_BASE_REF    
