@@ -25,7 +25,7 @@ artifacts:
   
   #$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/") 
  
-  name: profileapp-$Env:BUILD_BRANCH
+  name: $Env:TEST_ENV_VARIABLE-$Env:AWS_REGION
 
  ## CODEBUILD_SOURCE_VERSION
  ## CODEBUILD_WEBHOOK_BASE_REF    
