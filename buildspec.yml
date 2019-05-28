@@ -13,7 +13,7 @@ phases:
 
       - echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/"
       
-      - export BRANCH_BUILD=$($CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/")
+      - export BRANCH_BUILD=$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/")
      
      
    build:
@@ -23,7 +23,7 @@ artifacts:
   files:
    - public/*
 
-  name: profileapp-$($CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/") 
+  name: profileapp-$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/") 
  
 
  ## CODEBUILD_SOURCE_VERSION
