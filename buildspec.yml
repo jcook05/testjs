@@ -1,8 +1,8 @@
 version: 0.2
 
-
 env:
   variables:
+    APP_NAME: profileapp
     BUILD_BRANCH: myArtifactName
 
 phases:
@@ -15,17 +15,14 @@ phases:
       
       - BUILD_BRANCH=$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/")
      
-     
    build:
      commands:
-     
+
 artifacts:
   files:
    - public/*
-  
-  #$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/") 
  
-  name: $BUILD_BRANCH-$AWS_REGION
+  name: $APP_NAME-$BUILD_BRANCH
 
  ## CODEBUILD_SOURCE_VERSION
  ## CODEBUILD_WEBHOOK_BASE_REF    
