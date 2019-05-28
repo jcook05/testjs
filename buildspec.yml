@@ -12,6 +12,8 @@ phases:
       - echo $CODEBUILD_WEBHOOK_HEAD_REF
 
       - echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/"
+      
+      - export BRANCH_BUILD=$($CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/")
      
      
    build:
