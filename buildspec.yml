@@ -10,6 +10,8 @@ phases:
      commands:
       
       - echo $CODEBUILD_WEBHOOK_HEAD_REF
+
+      - echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f1-2 -d"/"
      
      
    build:
@@ -19,7 +21,7 @@ artifacts:
   files:
    - public/*
 
-  name: profileapp-$($CODEBUILD_WEBHOOK_HEAD_REF | cut -f1 -d"/") 
+  name: profileapp-$(CODEBUILD_WEBHOOK_HEAD_REF | cut -f1 -d"/") 
  
 
  ## CODEBUILD_SOURCE_VERSION
