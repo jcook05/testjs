@@ -22,7 +22,9 @@ phases:
      commands:
 
 artifacts:
-  files:
-   - public/*
+   files: 
+    - '**/*'
+  base-directory: 'public*'
+  
  
   name: $APP_NAME-$BUILD_BRANCH
