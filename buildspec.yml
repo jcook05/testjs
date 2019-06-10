@@ -14,7 +14,9 @@ phases:
 
       - echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/"
       
-      - BUILD_BRANCH=$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/")
+      - BUILD_BRANCH1=$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -f3 -d"/")
+      
+      - BUILD_BRANCH=$BUILD_BRANCH1.zip
      
    build:
      commands:
